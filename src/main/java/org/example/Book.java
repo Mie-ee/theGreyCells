@@ -1,32 +1,36 @@
 package org.example;
 
 public class Book {
-  private String ID;
+
+  private static int nextID = 1;
+  private String id;
   private String title;
-  private int publishYear;
+  private int year;
 
-  public Book( String ID, String title,int publishYear) {
-    this.ID = ID;
+  public Book(String title, int year) {
+    this.id = String.format("A%04d", nextID++);
     this.title = title;
-    this.publishYear = publishYear;
+    this.year = year;
   }
 
-  public String getID() {
-    return ID;
+  public String getId() {
+    return id;
   }
+
   public String getTitle() {
     return title;
   }
 
-  public int getPublishYear() {
-    return publishYear;
+  public int getYear() {
+    return year;
   }
+
   @Override
   public String toString() {
     return "Book{" +
-            "ID='" + ID + '\'' +
-            ", title='" + title + '\'' +
-            ", publishYear=" + publishYear +
-            '}';
+        "ID='" + id + '\'' +
+        ", title='" + title + '\'' +
+        ", publishYear=" + year +
+        '}';
   }
 }
