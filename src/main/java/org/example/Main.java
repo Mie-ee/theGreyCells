@@ -52,7 +52,8 @@ public class Main {
             break;
           case 0:
             System.out.println("All books in the library:");
-            System.out.println(library);
+            searchResult = library.getAllBooks();
+              System.out.println(library);
             break;
 
           //0~4以外の数字が入力された時の処理
@@ -63,7 +64,7 @@ public class Main {
         }
         //見つかる/見つからない時の条件分岐
         if (searchResult.isEmpty()) {
-          System.out.println("No book found.");
+          System.out.println(Color.red +"No book found."+ Color.end);
         } else {
           System.out.println("Search result:");
           for (Book book : searchResult) {

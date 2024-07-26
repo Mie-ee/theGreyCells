@@ -80,4 +80,8 @@ public class Library {
     }
     return sb.toString();
   }
+
+  public List<Book> getAllBooks() {
+    return books;
+  }
 }
