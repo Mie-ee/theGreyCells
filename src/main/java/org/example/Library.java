@@ -7,11 +7,12 @@ public class Library {
 
   private List<Book> books;
 
-  private void addBook(String title, int year) {
-    Book newBook = new Book(title, year);
-    books.add(newBook);
+  public Library() {
+    books = new ArrayList<>();
+    initializeBooks();
   }
 
+  //Book情報格納、初期化
   private void initializeBooks() {
     addBook("The Mysterious Affair at Styles", 1920);
     addBook("Murder on the Orient Express", 1934);
@@ -32,21 +33,22 @@ public class Library {
     addBook("Curtain: Poirot’s Last Case", 1975);
   }
 
-  public Library() {
-    books = new ArrayList<>();
-    initializeBooks();
+  public void addBook(String title, int year) {
+    Book newBook = new Book(title, year);
+    books.add(newBook);
   }
 
+  //Book情報検索機能
   public List<Book> searchByTitle(String title) {
-    List<Book> result = new ArrayList<>();
+    List<Book> searchResult = new ArrayList<>();
     String formattedTitle = title.toLowerCase().replaceAll("\\s+", "");
     for (Book book : books) {
       String formattedBookTitle = book.getTitle().toLowerCase().replaceAll("\\s+", "");
       if (formattedBookTitle.contains(formattedTitle)) {
-        result.add(book);
+        searchResult.add(book);
       }
     }
-    return result;
+    return searchResult;
   }
 
   public List<Book> searchByYear(int year) {
@@ -59,10 +61,23 @@ public class Library {
     return result;
   }
 
+  public List<Book> searchByID(String id) {
+    List<Book> result = new ArrayList<>();
+    for (Book book : books) {
+      if (book.getId().equals(id)) {
+        result.add(book);
+      }
+    }
+    return result;
+  }
+
+  //Libraryの本一覧を行分け表示
   @Override
   public String toString() {
-    return "Library{" +
-        "books=" + books +
-        '}';
+    StringBuilder sb = new StringBuilder();
+    for (Book book : books) {
+      sb.append(book).append("\n");
+    }
+    return sb.toString();
   }
 }

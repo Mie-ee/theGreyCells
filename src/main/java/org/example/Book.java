@@ -2,6 +2,9 @@ package org.example;
 
 public class Book {
 
+  //Bookの情報を管理
+  //idは自動的に振り分け
+
   private static int nextID = 1;
   private String id;
   private String title;
