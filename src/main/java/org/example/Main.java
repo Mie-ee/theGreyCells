@@ -14,8 +14,7 @@ public class Main {
     //使いたい機能の条件分岐
     while (true) {
       System.out.println(Color.yellow + "Welcome to The Grey Cells Library" + Color.end);
-      System.out.println(
-          Color.yellow + "Please enter a number to choose the function." + Color.end);
+      System.out.println(Color.yellow + "Please enter a number to choose the function." + Color.end);
       System.out.println(Color.back + "1.Search by Title" + Color.end);
       System.out.println(Color.back + "2.Search by Published Year" + Color.end);
       System.out.println(Color.back + "3.Search by ID" + Color.end);
@@ -53,7 +52,7 @@ public class Main {
           case 0:
             System.out.println("All books in the library:");
             searchResult = library.getAllBooks();
-              System.out.println(library);
+            System.out.println(library);
             break;
 
           //0~4以外の数字が入力された時の処理
@@ -64,7 +63,7 @@ public class Main {
         }
         //見つかる/見つからない時の条件分岐
         if (searchResult.isEmpty()) {
-          System.out.println(Color.red +"No book found."+ Color.end);
+          System.out.println(Color.red + "No book found." + Color.end);
         } else {
           System.out.println("Search result:");
           for (Book book : searchResult) {
